@@ -23,12 +23,6 @@ public class PersonaRestController {
     @Autowired
     IPersonaService personaService;
 
-    @GetMapping("/timezone")
-    public String getTimeZone() {
-        TimeZone timeZone = TimeZone.getDefault();
-        return "ID de la zona horaria: " + timeZone.getID();
-    }
-
     @GetMapping("/personas")
     public List<Persona>obtenerPersonas(){
         var personas = personaService.listarPersonas();
@@ -55,6 +49,7 @@ public class PersonaRestController {
             logger.error("No se encontro la persona con el nombre: "+ nombre);
             throw new RecursoNoEncontradoException("No se encontraron personas con el nombre: " + nombre);
         }
+
         return ResponseEntity.ok(personas);
     }
     @GetMapping("personas/filtrar/tipo-de-documento/{tipoDocumento}")
@@ -76,6 +71,7 @@ public class PersonaRestController {
     @PutMapping("/personas/{id}")
     public ResponseEntity<Persona>actualizarPersona(@PathVariable Long id, @RequestBody Persona objtoRecibido){
         var persona = personaService.buscarPorId(id);
+
         if(persona == null){
             throw new RecursoNoEncontradoException("No se encontro la persona con el id: "+ id);
         }
@@ -96,8 +92,7 @@ public class PersonaRestController {
         if (objtoRecibido.getTipoDocumento() != null) {
             persona.setTipoDocumento(objtoRecibido.getTipoDocumento());
         }
-
-
+        /*Se realiza la verificacion de cada campo para que puedan ser actualizado individualmente en Postman*/
         personaService.guardarPersona(persona);
         return ResponseEntity.ok(persona);
     }
