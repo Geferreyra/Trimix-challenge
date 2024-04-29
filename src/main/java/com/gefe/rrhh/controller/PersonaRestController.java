@@ -85,8 +85,8 @@ public class PersonaRestController {
             persona.setFecha_nacimiento(objtoRecibido.getFecha_nacimiento());
         }
 
-        if (objtoRecibido.getDni() != null) {
-            persona.setDni(objtoRecibido.getDni());
+        if (objtoRecibido.getNroDocumento() != null) {
+            persona.setNroDocumento(objtoRecibido.getNroDocumento());
         }
 
         if (objtoRecibido.getTipoDocumento() != null) {

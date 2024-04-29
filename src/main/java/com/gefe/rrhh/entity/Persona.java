@@ -1,10 +1,7 @@
 package com.gefe.rrhh.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,6 +11,7 @@ import java.util.Date;
 
 
 @Entity
+@Table
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -26,6 +24,6 @@ public class Persona{
     private String apellido;
     @JsonFormat(pattern = "dd-MM-yyyy", timezone = "UTC")
     private Date fecha_nacimiento;
-    private Double dni;
+    private Double nroDocumento;
     private String tipoDocumento;
 }
