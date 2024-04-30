@@ -24,6 +24,6 @@ public class Persona{
     private String apellido;
     @JsonFormat(pattern = "dd-MM-yyyy", timezone = "UTC")
     private Date fecha_nacimiento;
-    private Double nroDocumento;
+    private String nroDocumento;
     private String tipoDocumento;
 }
