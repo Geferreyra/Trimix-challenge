@@ -36,7 +36,7 @@ public class PersonaRestControllerTest {
         personaMock.setNombre("Gustavo");
         personaMock.setApellido("Ferreyra");
         personaMock.setTipoDocumento("Pasaporte");
-        personaMock.setDni(40263725.0);
+        personaMock.setNroDocumento(40263725.0);
         personaMock.setFecha_nacimiento(new SimpleDateFormat("dd-MM-yyyy").parse("12-12-2012"));
 
         when(personaService.buscarPorId(id)).thenReturn(personaMock);
@@ -101,7 +101,7 @@ public class PersonaRestControllerTest {
         personaMock.setNombre("Gustavo");
         personaMock.setApellido("Ferreyra");
         personaMock.setTipoDocumento(tipoDocumento);
-        personaMock.setDni(40263725.0);
+        personaMock.setNroDocumento(40263725.0);
         personaMock.setFecha_nacimiento(new SimpleDateFormat("dd-MM-yyyy").parse("12-12-2012"));
 
 
@@ -110,7 +110,7 @@ public class PersonaRestControllerTest {
         personaMock2.setNombre("Ezequiel");
         personaMock2.setApellido("Ferreyra");
         personaMock2.setTipoDocumento("Pasaporte");
-        personaMock2.setDni(40263725.0);
+        personaMock2.setNroDocumento(40263725.0);
         personaMock2.setFecha_nacimiento(new SimpleDateFormat("dd-MM-yyyy").parse("12-12-2012"));
 
         List<Persona>personas = new ArrayList<>();
@@ -153,7 +153,7 @@ public class PersonaRestControllerTest {
         personaExistente.setNombre("Joan");
         personaExistente.setApellido("Pirez");
         personaExistente.setFecha_nacimiento(new Date(2012, 11, 12)); // Corregir la creación de la fecha de nacimiento
-        personaExistente.setDni(321123654.0);
+        personaExistente.setNroDocumento(321123654.0);
         personaExistente.setTipoDocumento("DNI");
 
         Persona personaActualizada = new Persona();
@@ -161,7 +161,7 @@ public class PersonaRestControllerTest {
         personaActualizada.setNombre("Juan Pablo");
         personaActualizada.setApellido("Pirez");
         personaActualizada.setFecha_nacimiento(new Date(2012, 11, 12)); // Corregir la creación de la fecha de nacimiento
-        personaActualizada.setDni(321123654.0);
+        personaActualizada.setNroDocumento(321123654.0);
         personaActualizada.setTipoDocumento("DNI");
 
 
@@ -178,7 +178,7 @@ public class PersonaRestControllerTest {
         assertEquals("Juan Pablo", personaExistente.getNombre());
         assertEquals("Pirez", personaExistente.getApellido()); // El apellido debe mantenerse igual
         assertEquals(new Date(2012, 11, 12), personaExistente.getFecha_nacimiento()); // Corregir la fecha de nacimiento
-        assertEquals(321123654.0, personaExistente.getDni());
+        assertEquals(321123654.0, personaExistente.getNroDocumento());
         assertEquals("DNI", personaExistente.getTipoDocumento());
     }
 
@@ -188,7 +188,7 @@ public class PersonaRestControllerTest {
         persona.setNombre("Juan");
         persona.setApellido("Pereira");
         persona.setTipoDocumento("DNI");
-        persona.setDni(12345678.0);
+        persona.setNroDocumento(12345678.0);
         persona.setFecha_nacimiento(new Date(2012, 11, 12));
 
         when(personaService.guardarPersona(persona)).thenReturn(persona);
